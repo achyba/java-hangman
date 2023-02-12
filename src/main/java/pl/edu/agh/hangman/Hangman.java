@@ -1,9 +1,7 @@
 package pl.edu.agh.hangman;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 public class Hangman {
 
@@ -77,15 +75,31 @@ public class Hangman {
             hiddenWordChar.add(ch);
         }
 
+        List<Character> wordChar = new ArrayList<>();
+        for (char ch : word.toCharArray()) {
+            wordChar.add(ch);
+        }
+
+        Map<Character, Integer> hm = new HashMap<Character, Integer>();
+
+        // hashmap to store the frequency of element
+        for (char ch  : wordChar) {
+            Integer j = hm.get(ch);
+            hm.put(ch, (j == null) ? 1 : j + 1);
+        }
+
+
         while (numberOfTries!=0){
             System.out.println("\nLiczba prob: " + numberOfTries);
             String letter= userInput.giveLetter();
 
             if (userInput.checkLetter(word, letter)){
                 System.out.println("poprawna litera");
+
                 for(int  i=0;i<word.length();i++){
                     if(i==word.indexOf(letter)){
                         hiddenWordChar.set(i, letter.charAt(0));
+
                     }
                 }
                 for (char ch : hiddenWordChar) {
