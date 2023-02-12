@@ -11,6 +11,6 @@ public class RandomWordChooser
         Random randomizer = new Random();
         String randomListElement = getResourceFileAsString().get(randomizer.nextInt(getResourceFileAsString().size()));
         return randomListElement;
-        
+
     }
 }

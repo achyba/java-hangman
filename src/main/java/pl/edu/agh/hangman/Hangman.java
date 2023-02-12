@@ -55,10 +55,7 @@ public class Hangman {
     };
 
     public static void main(String[] args) {
-        for(String i : HANGMANPICS){
 
-            System.out.println(i);
-        }
 
 
 
