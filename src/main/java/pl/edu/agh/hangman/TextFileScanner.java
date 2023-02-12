@@ -5,6 +5,7 @@ import java.io.*;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Random.*;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -14,7 +15,7 @@ public class TextFileScanner {
     public static ArrayList<String> listOfWords = new ArrayList<>();
     private static String fileName= "slowa.txt";
 
-    static ArrayList<String> getResourceFileAsString() throws IOException {
+    public static ArrayList<String> getResourceFileAsString() throws IOException {
         ClassLoader classLoader = ClassLoader.getSystemClassLoader();
         try (InputStream is = classLoader.getResourceAsStream(fileName)) {
             if (is == null) return null;
@@ -35,9 +36,7 @@ public class TextFileScanner {
     public static void main(String[] args) throws IOException {
 
 
-        for(String i : getResourceFileAsString()){
-            System.out.println(i);
-        }
+
     }
 }
 
